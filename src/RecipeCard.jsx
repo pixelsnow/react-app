@@ -17,7 +17,7 @@ const RecipeCard = ({ info }) => {
 
   return (
     <div className={classes.card}>
-      <NavLink to={info.id}>
+      <NavLink to={`/${info.id}`}>
         <h2>{info.name}</h2>
       </NavLink>
       <div className={classes.flag_container}>

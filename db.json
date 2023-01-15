@@ -9,7 +9,7 @@
       "image": "https://assets.bonappetit.com/photos/5ea8f0df16738800085ad5d2/1:1/w_2560%2Cc_limit/Chicken-Parmesean-Recipe-Lede.jpg",
       "ingredients": [
         {
-          "ingredient": "chicken breasts",
+          "ingredient": "chicken breast",
           "quantity": "2"
         },
         {
@@ -280,7 +280,7 @@
           "quantity": "1"
         },
         {
-          "ingredient": "egg",
+          "ingredient": "eggs",
           "quantity": "1"
         },
         {
@@ -369,23 +369,23 @@
       "image": "https://www.earthfoodandfire.com/wp-content/uploads/2016/11/authentic-swiss-cheese-fondue.jpg",
       "ingredients": [
         {
-          "ingredient": "Gruyere cheese",
+          "ingredient": "gruyere cheese",
           "quantity": "1.5"
         },
         {
-          "ingredient": "Emmental cheese",
+          "ingredient": "emmental cheese",
           "quantity": "1.5"
         },
         {
-          "ingredient": "White wine",
+          "ingredient": "white wine",
           "quantity": "2"
         },
         {
-          "ingredient": "Garlic",
+          "ingredient": "garlic",
           "quantity": "3"
         },
         {
-          "ingredient": "Kirsch",
+          "ingredient": "kirsch",
           "quantity": "1"
         }
       ],
@@ -407,27 +407,27 @@
       "image": "https://www.sbs.com.au/food/sites/sbs.com.au.food/files/f6e4af93-11ef-4279-8ae7-64acd51f6a36.jpeg",
       "ingredients": [
         {
-          "ingredient": "Ground beef",
+          "ingredient": "ground beef",
           "quantity": "1.5"
         },
         {
-          "ingredient": "American cheese",
+          "ingredient": "american cheese",
           "quantity": "4"
         },
         {
-          "ingredient": "Lettuce",
+          "ingredient": "lettuce",
           "quantity": "1"
         },
         {
-          "ingredient": "Tomato",
+          "ingredient": "tomato",
           "quantity": "1"
         },
         {
-          "ingredient": "Onion",
+          "ingredient": "onion",
           "quantity": "0.5"
         },
         {
-          "ingredient": "Hamburger buns",
+          "ingredient": "hamburger buns",
           "quantity": "4"
         }
       ],

@@ -1,10 +1,14 @@
 .card {
   background-color: antiquewhite;
-  width: 150px;
+  width: var(--card-width);
+}
+
+.recipe_photo_container {
+  height: var(--card-width);
 }
 
 .recipe_photo {
-  width: 150px;
+  width: var(--card-width);
 }
 
 .flag {
