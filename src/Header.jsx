@@ -8,7 +8,7 @@ import classes from "./Header.module.css";
 
 const Header = () => {
   return (
-    <header>
+    <header className={classes.header}>
       <NavLink to="/">
         <div className={classes.logo_container}>
           <ReactLogo className={classes.logo} />

@@ -5,14 +5,14 @@ import classes from "./Nav.module.css";
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className={classes.nav}>
       <ul>
-        <li>
-          <NavLink to="recipes">Browse recipes</NavLink>
-        </li>
-        <li>
-          <NavLink to="about">About</NavLink>
-        </li>
+        <NavLink to="recipes">
+          <li>Browse recipes</li>
+        </NavLink>
+        <NavLink to="about">
+          <li>About</li>
+        </NavLink>
       </ul>
     </nav>
   );
