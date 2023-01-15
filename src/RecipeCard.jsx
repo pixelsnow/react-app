@@ -11,7 +11,6 @@ const RecipeCard = ({ info }) => {
     axios
       .get(`https://restcountries.com/v3.1/name/${info.country}`)
       .then((data) => {
-        console.log(data.data[0]);
         setFlag(data.data[0].flags.svg);
       });
   }, []);

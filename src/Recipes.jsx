@@ -12,17 +12,7 @@ const Recipes = () => {
   const [countrySearchValue, setCountrySearchValue] = useState("");
   const [countries, setCountries] = useState([]);
 
-  const parseIngredients = (recipes) => {
-    const res = [];
-    recipes.forEach((recipe) => {
-      recipe.ingredients.forEach((ingredient) => {
-        if (!res.includes(ingredient.ingredient))
-          res.push(ingredient.ingredient);
-      });
-    });
-    return res;
-  };
-
+  // Creates a list of all countries from recipes
   const parseCountries = (recipes) => {
     const res = [];
     recipes.forEach((recipe) => {
@@ -31,6 +21,7 @@ const Recipes = () => {
     return res;
   };
 
+  // Fetches all recipe data
   useEffect(() => {
     axios.get(`http://localhost:3004/recipes`).then((data) => {
       setRecipes(data.data);
@@ -39,75 +30,38 @@ const Recipes = () => {
     });
   }, []);
 
-  const filterByText = (recipeList, text) => {
+  // Filters recipes by text search, ingredient search and country
+  // and sets the value of filteredRecipes
+  const filterAll = (textValue, ingredientValue, countryValue) => {
     setFilteredRecipes(
-      recipeList.filter((recipe) => {
-        return (
-          recipe.name.toLowerCase().includes(text) ||
-          recipe.description.toLowerCase().includes(text)
-        );
-      })
-    );
-  };
-
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value.toLowerCase().trim());
-    filterByText(recipes, e.target.value.toLowerCase().trim());
-  };
-
-  const filterByIngredient = (recipeList, ingredientValue) => {
-    setFilteredRecipes(
-      recipeList.filter((recipe) => {
+      recipes.filter((recipe) => {
         let match = false;
         recipe.ingredients.forEach((ingredient) => {
           if (ingredient.ingredient.includes(ingredientValue)) match = true;
         });
-        return match;
-      })
-    );
-  };
-
-  const handleIngredientSearch = (e) => {
-    setIngredientSearchValue(e.target.value.toLowerCase().trim());
-    filterByIngredient(recipes, e.target.value.toLowerCase().trim());
-    filterByText(filteredRecipes, searchValue);
-  };
-
-  const handleCountrySearch = (e) => {
-    setCountrySearchValue(e.target.value.toLowerCase().trim());
-    setFilteredRecipes(
-      recipes.filter((recipe) => {
-        return recipe.country
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase().trim());
-      })
-    );
-  };
-
-  const filterAll = () => {
-    setFilteredRecipes(
-      recipes.filter((recipe) => {
-        let match = false;
-        recipe.ingredients.forEach((ingredient) => {
-          if (ingredient.ingredient.includes(ingredientSearchValue))
-            match = true;
-        });
         return (
           match &&
-          recipe.country.toLowerCase().includes(countrySearchValue) &&
-          (recipe.name.toLowerCase().includes(searchValue) ||
-            recipe.description.toLowerCase().includes(searchValue))
+          recipe.country.toLowerCase().includes(countryValue) &&
+          (recipe.name.toLowerCase().includes(textValue) ||
+            recipe.description.toLowerCase().includes(textValue))
         );
       })
     );
   };
 
+  // Universal function to filter recipes by any search input
   const handleSearches = (e, searchField) => {
     const value = e.target.value.toLowerCase().trim();
-    if (searchField === "text") setSearchValue(value);
-    else if (searchField === "ingredient") setIngredientSearchValue(value);
-    else if (searchField === "country") setCountrySearchValue(value);
-    filterAll();
+    if (searchField === "text") {
+      setSearchValue(value);
+      filterAll(value, ingredientSearchValue, countrySearchValue);
+    } else if (searchField === "ingredient") {
+      setIngredientSearchValue(value);
+      filterAll(searchValue, value, countrySearchValue);
+    } else if (searchField === "country") {
+      setCountrySearchValue(value);
+      filterAll(searchValue, ingredientSearchValue, value);
+    }
   };
 
   return (
@@ -116,14 +70,14 @@ const Recipes = () => {
       <input
         type="text"
         value={searchValue}
-        onChange={(e) => handleSearch(e)}
+        onChange={(e) => handleSearches(e, "text")}
       />
       <input
         type="text"
         value={ingredientSearchValue}
-        onChange={(e) => handleIngredientSearch(e)}
+        onChange={(e) => handleSearches(e, "ingredient")}
       />
-      <select defaultValue={""} onChange={(e) => handleCountrySearch(e)}>
+      <select defaultValue={""} onChange={(e) => handleSearches(e, "country")}>
         <option value="">All countries</option>
         {countries.map((country) => (
           <option key={country} value={country}>
