@@ -13,7 +13,7 @@ const RecipePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3004/recipes`).then((data) => {
+    axios.get(`http://localhost:3001/recipes`).then((data) => {
       const allRecipes = data.data;
       const found = allRecipes.find((recipe) => recipe.id == recipeId);
       if (found === undefined) {

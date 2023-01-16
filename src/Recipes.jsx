@@ -34,7 +34,7 @@ const Recipes = () => {
 
   // Fetches all recipe data
   useEffect(() => {
-    axios.get(`http://localhost:3004/recipes`).then((data) => {
+    axios.get(`http://localhost:3001/recipes`).then((data) => {
       setRecipes(data.data);
       setFilteredRecipes(data.data);
       setCountries(parseCountries(data.data));

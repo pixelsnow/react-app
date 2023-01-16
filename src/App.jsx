@@ -6,6 +6,7 @@ import Recipes from "./Recipes";
 import RecipePage from "./RecipePage";
 import About from "./About";
 import NotFound from "./NotFound";
+import AddRecipePage from "./AddRecipePage";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="recipes" element={<Recipes />} />
           <Route path=":recipeId" element={<RecipePage />} />
           <Route path="about" element={<About />} />
+          <Route path="add_recipe" element={<AddRecipePage />} />
           <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
