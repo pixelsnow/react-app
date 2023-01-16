@@ -1,16 +1,41 @@
 import React, { useState } from "react";
 import axios from "axios";
+import cloneDeep from "lodash/cloneDeep";
 
 import classes from "./AddRecipePage.module.css";
 
 const AddRecipePage = () => {
-  const [recipe, setRecipe] = useState({});
+  const [recipe, setRecipe] = useState({
+    name: "",
+    author: "",
+    country: "",
+    description: "",
+    image: "",
+    ingredients: [
+      {
+        ingredient: "11",
+        quantity: "",
+      },
+    ],
+    instructions: "",
+  });
+
+  const addIngredient = () => {
+    const newRecipe = cloneDeep(recipe);
+    newRecipe.ingredients.push({
+      ingredient: "22",
+      quantity: "",
+    });
+    setRecipe(newRecipe);
+  };
+
   const handlePost = () => {
     axios
       .post("http://localhost:3001/recipes", recipe)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
+
   return (
     <div className={classes.form_page}>
       <h1>Add your recipe</h1>
@@ -290,6 +315,21 @@ const AddRecipePage = () => {
           <option value="Zambia">Zambia</option>
           <option value="Zimbabwe">Zimbabwe</option>
         </select>
+        {recipe.ingredients.map((ingredient, index) => (
+          <div key={index} className={classes.ingredient_container}>
+            <div className={classes.ingredient_field}>
+              <label htmlFor="ingredient">Ingredient</label>
+              <input id="ingredient" type="text" />
+            </div>
+            <div className={classes.ingredient_field}>
+              <label htmlFor="quantity">Quantity</label>
+              <input id="quantity" type="text" />
+            </div>
+            <button>X</button>
+          </div>
+        ))}
+
+        <button onClick={addIngredient}>Add another ingredient</button>
         <label htmlFor="img">Image link</label>
         <input id="img" type="text" />
         <label htmlFor="instructions">Instructions</label>

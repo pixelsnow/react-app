@@ -9,3 +9,13 @@
   flex-direction: column;
   max-width: 500px;
 }
+
+.ingredient_container {
+  background-color: antiquewhite;
+  display: flex;
+}
+
+.ingredient_field {
+  display: flex;
+  flex-direction: column;
+}
