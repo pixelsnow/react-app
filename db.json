@@ -489,7 +489,7 @@
       ]
     },
     {
-      "id": 61,
+      "id": 11,
       "name": "Fisk Soppa!",
       "author": "Jenni",
       "country": "Finland",
@@ -520,7 +520,7 @@
       "instructions": "Paista kalakuutiot, keitä perunat, heitä kaikki maitoon kylpemään hetkeksi ja nauti. "
     },
     {
-      "id": 62,
+      "id": 12,
       "name": "Kalajuttu",
       "author": "Jenni",
       "country": "Finland",
@@ -549,96 +549,6 @@
         }
       ],
       "instructions": "Paista lohi, keitä pasta, heitä sekaisin pannulle ja lisää kerma sekä tilli. Kuumenna ja nauti. "
-    },
-    {
-      "name": "name",
-      "author": "f",
-      "country": "f",
-      "description": "f",
-      "image": "f",
-      "ingredients": [
-        {
-          "ingredient": "11",
-          "quantity": "f"
-        }
-      ],
-      "instructions": "f",
-      "id": 63
-    },
-    {
-      "name": "name",
-      "author": "f",
-      "country": "f",
-      "description": "f",
-      "image": "f",
-      "ingredients": [
-        {
-          "ingredient": "11",
-          "quantity": "f"
-        }
-      ],
-      "instructions": "f",
-      "id": 64
-    },
-    {
-      "name": "name",
-      "author": "f",
-      "country": "f",
-      "description": "f",
-      "image": "f",
-      "ingredients": [
-        {
-          "ingredient": "11",
-          "quantity": "f"
-        }
-      ],
-      "instructions": "f",
-      "id": 65
-    },
-    {
-      "id": 66,
-      "name": "name",
-      "author": "f",
-      "country": "f",
-      "description": "f",
-      "image": "f",
-      "ingredients": [
-        {
-          "ingredient": "11",
-          "quantity": "f"
-        }
-      ],
-      "instructions": "f"
-    },
-    {
-      "name": "name",
-      "author": "f",
-      "country": "f",
-      "description": "f",
-      "image": "f",
-      "ingredients": [
-        {
-          "ingredient": "11",
-          "quantity": "f"
-        }
-      ],
-      "instructions": "f",
-      "id": 67
-    },
-    {
-      "name": "name",
-      "author": "f",
-      "country": "",
-      "description": "f",
-      "image": "f",
-      "ingredients": [
-        {
-          "ingredient": "11",
-          "quantity": "f"
-        }
-      ],
-      "instructions": "f",
-      "id": 68
     }
   ]
 }
