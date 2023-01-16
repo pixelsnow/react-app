@@ -549,35 +549,6 @@
         }
       ],
       "instructions": "Paista lohi, keitä pasta, heitä sekaisin pannulle ja lisää kerma sekä tilli. Kuumenna ja nauti. "
-    },
-    {
-      "id": 69,
-      "name": "Kalajuttu",
-      "description": "Kermainen lohipasta. ",
-      "image": "https://asset-eu.unileversolutions.com/content/dam/unilever/global/recipe_image/214/21456/214561-default.jpg/_jcr_content/renditions/cq5dam.web.1600.1200.jpeg",
-      "ingredients": [
-        {
-          "quantity": "500 g",
-          "ingredient": "lohikuutioita"
-        },
-        {
-          "quantity": "500 g",
-          "ingredient": "pastaa"
-        },
-        {
-          "quantity": "2.5 dl",
-          "ingredient": "ruokekermaa"
-        },
-        {
-          "quantity": "20 g",
-          "ingredient": "tilliä"
-        },
-        {
-          "quantity": "100 g",
-          "ingredient": "sulatejuustoa"
-        }
-      ],
-      "instructions": "Paista lohi, keitä pasta, heitä sekaisin pannulle ja lisää kerma sekä tilli. Kuumenna ja nauti. "
     }
   ]
 }

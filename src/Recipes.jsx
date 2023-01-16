@@ -12,7 +12,7 @@ const Recipes = () => {
   const [countrySearchValue, setCountrySearchValue] = useState("");
   const [countries, setCountries] = useState([]);
 
-  const parseIngredients = () => {
+  /* const parseIngredients = () => {
     const res = [];
     recipes.forEach((recipe) => {
       recipe.ingredients.forEach((ingredient) => {
@@ -21,7 +21,7 @@ const Recipes = () => {
       });
     });
     return res;
-  };
+  }; */
 
   // Creates a list of all countries from recipes
   const parseCountries = (recipes) => {
@@ -38,7 +38,7 @@ const Recipes = () => {
       setRecipes(data.data);
       setFilteredRecipes(data.data);
       setCountries(parseCountries(data.data));
-      console.log(parseIngredients());
+      /* console.log(parseIngredients()); */
     });
   }, []);
 

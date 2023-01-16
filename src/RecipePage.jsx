@@ -13,24 +13,23 @@ const RecipePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3004/recipes`)
-      .then((data) => {
-        const allRecipes = data.data;
-        const found = allRecipes.find((recipe) => recipe.id == recipeId);
-        if (found === undefined) setError(true);
-        setRecipeInfo(found);
-      })
-      .then(
-        axios
-          .get(`https://restcountries.com/v3.1/name/${recipeInfo.country}`)
-          .then((data) => {
-            setFlag(data.data[0].flags.svg);
-          })
-          .catch((err) => {
-            setFlag("");
-          })
-      );
+    axios.get(`http://localhost:3004/recipes`).then((data) => {
+      const allRecipes = data.data;
+      const found = allRecipes.find((recipe) => recipe.id == recipeId);
+      if (found === undefined) {
+        setError(true);
+        return;
+      }
+      setRecipeInfo(found);
+      axios
+        .get(`https://restcountries.com/v3.1/name/${found.country}`)
+        .then((data) => {
+          setFlag(data.data[0].flags.svg);
+        })
+        .catch((err) => {
+          setFlag("");
+        });
+    });
   }, []);
 
   if (error) return <NotFound />;
@@ -61,7 +60,7 @@ const RecipePage = () => {
             <tbody>
               {recipeInfo.ingredients &&
                 recipeInfo.ingredients.map((ingredient) => (
-                  <tr>
+                  <tr key={ingredient.ingredient}>
                     <td>{ingredient.ingredient}</td>
                     <td>{ingredient.quantity}</td>
                   </tr>
