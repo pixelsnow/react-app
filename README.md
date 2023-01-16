@@ -1,4 +1,6 @@
 # TasteIT
+
+## Must-have features
 - Function components + hooks
 - Separated components (using props)
 - Event handlers (onClick, onSubmit)
