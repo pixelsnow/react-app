@@ -42,6 +42,7 @@ const RecipePage = () => {
           <img className={classes.flag} src={flag} alt={recipeInfo.country} />
         </div>
         <p>by {recipeInfo.author || "unknown author"}</p>
+
         <div className={classes.image_container}>
           <img
             className={classes.image}
@@ -49,6 +50,7 @@ const RecipePage = () => {
             alt={recipeInfo.name}
           />
         </div>
+        <p>{recipeInfo.description}</p>
         <div className={classes.ingredient_list}>
           <table>
             <thead>

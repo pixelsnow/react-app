@@ -8,28 +8,45 @@ import classes from "./AddRecipePage.module.css";
 const AddRecipePage = () => {
   const [recipe, setRecipe] = useState({
     id: undefined,
-    name: "name",
-    author: "f",
+    name: "",
+    author: "",
     country: "",
-    description: "f",
-    image: "f",
+    description: "",
+    image: "",
     ingredients: [
       {
-        ingredient: "11",
-        quantity: "f",
+        ingredient: "",
+        quantity: "",
       },
     ],
-    instructions: "f",
+    instructions: "",
   });
   const [recipePosted, setRecipePosted] = useState(false);
   const [id, setId] = useState();
 
-  const addIngredient = () => {
+  const changeHandler = (e) => {
+    setRecipe({ ...recipe, [e.target.name]: e.target.value });
+  };
+
+  const addIngredient = (e) => {
+    e.preventDefault();
     const newRecipe = cloneDeep(recipe);
     newRecipe.ingredients.push({
-      ingredient: "22",
+      ingredient: "",
       quantity: "",
     });
+    console.log(newRecipe);
+    console.log(recipe);
+    setRecipe(newRecipe);
+  };
+
+  const removeIngredient = (e, index) => {
+    e.preventDefault();
+    console.log(`removing ${index}`);
+    const newRecipe = cloneDeep(recipe);
+    newRecipe.ingredients.splice(index, 1);
+    console.log(newRecipe);
+    console.log(recipe);
     setRecipe(newRecipe);
   };
 
@@ -51,12 +68,35 @@ const AddRecipePage = () => {
         <div>
           <h1>Add your recipe</h1>
           <form className={classes.form}>
-            <label htmlFor="title">Title</label>
-            <input id="title" type="text" />
+            <label htmlFor="name">Title</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              onChange={(e) => changeHandler(e)}
+            />
             <label htmlFor="author">Your name</label>
-            <input id="author" type="text" />
+            <input
+              id="author"
+              name="author"
+              type="text"
+              onChange={(e) => changeHandler(e)}
+            />
+            <label htmlFor="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              cols="30"
+              rows="10"
+              onChange={(e) => changeHandler(e)}
+            ></textarea>
             <label htmlFor="country">Country</label>
-            <select defaultValue={""}>
+            <select
+              id="country"
+              name="country"
+              defaultValue={""}
+              onChange={(e) => changeHandler(e)}
+            >
               <option value="" disabled>
                 Select country
               </option>
@@ -352,19 +392,27 @@ const AddRecipePage = () => {
                   <label htmlFor="quantity">Quantity</label>
                   <input id="quantity" type="text" />
                 </div>
-                <button>X</button>
+                <button onClick={(e) => removeIngredient(e, index)}>X</button>
               </div>
             ))}
 
-            <button onClick={addIngredient}>Add another ingredient</button>
-            <label htmlFor="img">Image link</label>
-            <input id="img" type="text" />
+            <button onClick={(e) => addIngredient(e)}>
+              Add another ingredient
+            </button>
+            <label htmlFor="image">Image link</label>
+            <input
+              id="image"
+              name="image"
+              type="text"
+              onChange={(e) => changeHandler(e)}
+            />
             <label htmlFor="instructions">Instructions</label>
             <textarea
-              name="instructions"
               id="instructions"
+              name="instructions"
               cols="30"
               rows="10"
+              onChange={(e) => changeHandler(e)}
             ></textarea>
             <button type="submit" onClick={(e) => handlePost(e)}>
               Submit
