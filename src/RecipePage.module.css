@@ -4,10 +4,32 @@
   padding: 4rem;
 }
 
+.recipe_page h1 {
+  font-size: 3rem;
+}
+
+.recipe_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author {
+  text-align: right;
+}
+
 .image {
   height: 500px;
 }
 
 .flag {
   width: 50px;
+}
+
+.recipe_page table {
+  border-collapse: collapses;
+}
+
+.recipe_page table td,
+.recipe_page table th {
+  padding: 0.3rem 1rem;
 }

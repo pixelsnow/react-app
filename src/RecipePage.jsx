@@ -36,41 +36,51 @@ const RecipePage = () => {
   else
     return (
       <div className={classes.recipe_page}>
-        <button onClick={() => navigate(-1)}>{`<-`}</button>
-        <h1>{recipeInfo.name}</h1>
-        <div className={classes.flag_container}>
-          <img className={classes.flag} src={flag} alt={recipeInfo.country} />
+        <div className={classes.recipe_title}>
+          <button onClick={() => navigate(-1)}>{`<-`}</button>
+          <h1>{recipeInfo.name}</h1>
+          <div className={classes.flag_container}>
+            <img className={classes.flag} src={flag} alt={recipeInfo.country} />
+            <p>from {recipeInfo.country}</p>
+            <p className={classes.author}>
+              by {recipeInfo.author || "unknown author"}
+            </p>
+          </div>
+          <div></div>
         </div>
-        <p>by {recipeInfo.author || "unknown author"}</p>
+        <div>
+          <div className={classes.image_container}>
+            <img
+              className={classes.image}
+              src={recipeInfo.image}
+              alt={recipeInfo.name}
+            />
+          </div>
+          <div className={classes.ingredient_list}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recipeInfo.ingredients &&
+                  recipeInfo.ingredients.map((ingredient) => (
+                    <tr key={ingredient.ingredient}>
+                      <td>{ingredient.ingredient}</td>
+                      <td>{ingredient.quantity}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <p>{recipeInfo.description}</p>
 
-        <div className={classes.image_container}>
-          <img
-            className={classes.image}
-            src={recipeInfo.image}
-            alt={recipeInfo.name}
-          />
+          <p>{recipeInfo.instructions}</p>
         </div>
-        <p>{recipeInfo.description}</p>
-        <div className={classes.ingredient_list}>
-          <table>
-            <thead>
-              <tr>
-                <th>Ingredient</th>
-                <th>Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recipeInfo.ingredients &&
-                recipeInfo.ingredients.map((ingredient) => (
-                  <tr key={ingredient.ingredient}>
-                    <td>{ingredient.ingredient}</td>
-                    <td>{ingredient.quantity}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-        <p>{recipeInfo.instructions}</p>
       </div>
     );
 };
