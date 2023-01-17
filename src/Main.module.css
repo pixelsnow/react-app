@@ -1,6 +1,5 @@
 .main {
   display: flex;
+
   justify-content: center;
-  background: linear-gradient(to bottom, rgb(87, 87, 87), rgb(33, 33, 33))
-    no-repeat center center fixed;
 }

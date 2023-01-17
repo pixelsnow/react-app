@@ -18,11 +18,13 @@ const RecipeCard = ({ info }) => {
   return (
     <div className={classes.card}>
       <div className={classes.recipe_photo_container}>
-        <img
-          className={classes.recipe_photo}
-          src={info.image}
-          alt={info.name}
-        />
+        <NavLink className={classes.card_link} to={`/${info.id}`}>
+          <img
+            className={classes.recipe_photo}
+            src={info.image}
+            alt={info.name}
+          />
+        </NavLink>
       </div>
       <div className={classes.info_container}>
         <NavLink className={classes.card_link} to={`/${info.id}`}>

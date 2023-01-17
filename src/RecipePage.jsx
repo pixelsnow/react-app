@@ -35,7 +35,7 @@ const RecipePage = () => {
   if (error) return <NotFound />;
   else
     return (
-      <div>
+      <div className={classes.recipe_page}>
         <button onClick={() => navigate(-1)}>{`<-`}</button>
         <h1>{recipeInfo.name}</h1>
         <div className={classes.flag_container}>

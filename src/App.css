@@ -4,3 +4,40 @@
   --card-height: 420px;
   --card-width: 300px;
 }
+
+html {
+  background: linear-gradient(to bottom, rgb(87, 87, 87), rgb(33, 33, 33))
+    no-repeat center center fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 0.3rem;
+}
+
+input,
+select {
+  height: 3rem;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background-color: black;
+  color: white;
+}

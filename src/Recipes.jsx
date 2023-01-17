@@ -77,21 +77,27 @@ const Recipes = () => {
   };
 
   return (
-    <div>
+    <div className={classes.recipes_page}>
       <h1>Recipes</h1>
       <input
+        className={classes.search}
         placeholder="Search"
         type="text"
         value={searchValue}
         onChange={(e) => handleSearches(e, "text")}
       />
       <input
+        className={classes.search_ingredients}
         placeholder="Search by ingredient"
         type="text"
         value={ingredientSearchValue}
         onChange={(e) => handleSearches(e, "ingredient")}
       />
-      <select defaultValue={""} onChange={(e) => handleSearches(e, "country")}>
+      <select
+        className={classes.search_countries}
+        defaultValue={""}
+        onChange={(e) => handleSearches(e, "country")}
+      >
         <option value="">All countries</option>
         {countries.map((country) => (
           <option key={country} value={country}>
@@ -99,6 +105,7 @@ const Recipes = () => {
           </option>
         ))}
       </select>
+      <p className={classes.recipes_count}>{filteredRecipes.length} recipes</p>
       <div className={classes.cards_container}>
         {filteredRecipes.map((recipe) => (
           <RecipeCard key={recipe.id} info={recipe} />
