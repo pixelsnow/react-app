@@ -558,12 +558,35 @@
       "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "ingredients": [
         {
-          "ingredient": "",
-          "quantity": ""
+          "ingredient": "paneer",
+          "quantity": "1"
         }
       ],
       "instructions": "cook paneer",
       "id": 13
+    },
+    {
+      "name": "sdag",
+      "author": "afdg",
+      "country": "Algeria",
+      "description": "earg",
+      "image": "https://unsplash.com/photos/vgTntT8PmIM",
+      "ingredients": [
+        {
+          "ingredient": "erg",
+          "quantity": "1"
+        },
+        {
+          "ingredient": "asdfewth",
+          "quantity": "5"
+        },
+        {
+          "ingredient": "wegefh",
+          "quantity": "7"
+        }
+      ],
+      "instructions": "dshfgsiq",
+      "id": 14
     }
   ]
 }

@@ -28,6 +28,12 @@ const AddRecipePage = () => {
     setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
+  const changeIngredient = (e, index) => {
+    const newRecipe = cloneDeep(recipe);
+    newRecipe.ingredients[index][e.target.name] = e.target.value;
+    setRecipe(newRecipe);
+  };
+
   const addIngredient = (e) => {
     e.preventDefault();
     const newRecipe = cloneDeep(recipe);
@@ -35,8 +41,6 @@ const AddRecipePage = () => {
       ingredient: "",
       quantity: "",
     });
-    console.log(newRecipe);
-    console.log(recipe);
     setRecipe(newRecipe);
   };
 
@@ -45,8 +49,6 @@ const AddRecipePage = () => {
     console.log(`removing ${index}`);
     const newRecipe = cloneDeep(recipe);
     newRecipe.ingredients.splice(index, 1);
-    console.log(newRecipe);
-    console.log(recipe);
     setRecipe(newRecipe);
   };
 
@@ -386,11 +388,21 @@ const AddRecipePage = () => {
               <div key={index} className={classes.ingredient_container}>
                 <div className={classes.ingredient_field}>
                   <label htmlFor="ingredient">Ingredient</label>
-                  <input id="ingredient" type="text" />
+                  <input
+                    id="ingredient"
+                    name="ingredient"
+                    type="text"
+                    onChange={(e) => changeIngredient(e, index)}
+                  />
                 </div>
                 <div className={classes.ingredient_field}>
                   <label htmlFor="quantity">Quantity</label>
-                  <input id="quantity" type="text" />
+                  <input
+                    id="quantity"
+                    name="quantity"
+                    type="text"
+                    onChange={(e) => changeIngredient(e, index)}
+                  />
                 </div>
                 <button onClick={(e) => removeIngredient(e, index)}>X</button>
               </div>
