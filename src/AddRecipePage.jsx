@@ -80,6 +80,8 @@ const AddRecipePage = () => {
           <form className={classes.form}>
             <label htmlFor="name">Title</label>
             <input
+              minlength="2"
+              maxlength="50"
               id="name"
               name="name"
               type="text"
@@ -87,6 +89,7 @@ const AddRecipePage = () => {
             />
             <label htmlFor="author">Your name</label>
             <input
+              maxlength="30"
               id="author"
               name="author"
               type="text"
@@ -102,6 +105,7 @@ const AddRecipePage = () => {
             ></textarea>
             <label htmlFor="country">Country</label>
             <select
+              minlength="2"
               id="country"
               name="country"
               defaultValue={""}
@@ -430,6 +434,8 @@ const AddRecipePage = () => {
             />
             <label htmlFor="instructions">Instructions</label>
             <textarea
+              minlength="2"
+              maxlength="10000"
               id="instructions"
               name="instructions"
               cols="30"
