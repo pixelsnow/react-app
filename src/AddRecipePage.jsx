@@ -6,7 +6,7 @@ import cloneDeep from "lodash/cloneDeep";
 import classes from "./AddRecipePage.module.css";
 
 const AddRecipePage = () => {
-  const [recipe, setRecipe] = useState({
+  const emptyRecipe = {
     id: undefined,
     name: "",
     author: "",
@@ -20,7 +20,9 @@ const AddRecipePage = () => {
       },
     ],
     instructions: "",
-  });
+  };
+
+  const [recipe, setRecipe] = useState(cloneDeep(emptyRecipe));
   const [recipePosted, setRecipePosted] = useState(false);
   const [id, setId] = useState();
 
@@ -63,6 +65,11 @@ const AddRecipePage = () => {
       .catch((err) => {
         alert(err);
       });
+  };
+
+  const addAnother = () => {
+    setRecipePosted(false);
+    setRecipe(cloneDeep(emptyRecipe));
   };
 
   return (
@@ -442,9 +449,7 @@ const AddRecipePage = () => {
           <NavLink to={`/${id}`}>
             <button>See your recipe</button>
           </NavLink>
-          <button onClick={() => setRecipePosted(false)}>
-            Add another one
-          </button>
+          <button onClick={addAnother}>Add another one</button>
         </div>
       )}
     </div>
