@@ -16,21 +16,30 @@ const RecipeCard = ({ info }) => {
   }, []);
 
   return (
-    <div className={classes.card}>
-      <NavLink to={`/${info.id}`}>
-        <h2>{info.name}</h2>
-      </NavLink>
-      <div className={classes.flag_container}>
-        <img className={classes.flag} src={flag} alt={info.country} />
+    <NavLink className={classes.card_link} to={`/${info.id}`}>
+      <div className={classes.card}>
+        <div className={classes.recipe_photo_container}>
+          <img
+            className={classes.recipe_photo}
+            src={info.image}
+            alt={info.name}
+          />
+        </div>
+        <div className={classes.info_container}>
+          <h2>{info.name}</h2>
+          <p>
+            {info.description.substring(0, 100)}
+            {info.description.length > 100 && `...`}
+          </p>
+          <div className={classes.extra_info}>
+            <p>by {info.author}</p>
+            <div className={classes.flag_container}>
+              <img className={classes.flag} src={flag} alt={info.country} />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className={classes.recipe_photo_container}>
-        <img
-          className={classes.recipe_photo}
-          src={info.image}
-          alt={info.name}
-        />
-      </div>
-    </div>
+    </NavLink>
   );
 };
 
