@@ -58,10 +58,11 @@ const AddRecipePage = () => {
     axios
       .post("http://localhost:3001/recipes", recipe)
       .then((res) => {
-        console.log(res);
         setId(res.data.id);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   return (
@@ -392,6 +393,7 @@ const AddRecipePage = () => {
                     id="ingredient"
                     name="ingredient"
                     type="text"
+                    value={recipe.ingredients[index].ingredient}
                     onChange={(e) => changeIngredient(e, index)}
                   />
                 </div>
@@ -401,6 +403,7 @@ const AddRecipePage = () => {
                     id="quantity"
                     name="quantity"
                     type="text"
+                    value={recipe.ingredients[index].quantity}
                     onChange={(e) => changeIngredient(e, index)}
                   />
                 </div>
@@ -435,12 +438,12 @@ const AddRecipePage = () => {
 
       {recipePosted && (
         <div>
-          Recipe {recipe.name} posted!
+          Recipe {recipe.name} has been added successfully!
           <NavLink to={`/${id}`}>
-            <button>See it</button>
+            <button>See your recipe</button>
           </NavLink>
           <button onClick={() => setRecipePosted(false)}>
-            Post another one
+            Add another one
           </button>
         </div>
       )}

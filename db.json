@@ -560,33 +560,14 @@
         {
           "ingredient": "paneer",
           "quantity": "1"
+        },
+        {
+          "ingredient": "effort",
+          "quantity": "0"
         }
       ],
       "instructions": "cook paneer",
       "id": 13
-    },
-    {
-      "name": "sdag",
-      "author": "afdg",
-      "country": "Algeria",
-      "description": "earg",
-      "image": "https://unsplash.com/photos/vgTntT8PmIM",
-      "ingredients": [
-        {
-          "ingredient": "erg",
-          "quantity": "1"
-        },
-        {
-          "ingredient": "asdfewth",
-          "quantity": "5"
-        },
-        {
-          "ingredient": "wegefh",
-          "quantity": "7"
-        }
-      ],
-      "instructions": "dshfgsiq",
-      "id": 14
     }
   ]
 }
