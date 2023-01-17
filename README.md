@@ -12,4 +12,4 @@
 -	Styling
 -	Optimized and clean code without errors or warnings 
 - User can add and see recipes.
-- For the countries use https://restcountries.com/ API.
+- For the countries use https://restcountries.com/API
