@@ -17,11 +17,13 @@
 }
 
 .info_container h2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  font-family: "Lora", serif;
+  margin-bottom: 0.7rem;
 }
 
 .info_container p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #888;
 }
 

@@ -28,8 +28,8 @@ const RecipeCard = ({ info }) => {
         <div className={classes.info_container}>
           <h2>{info.name}</h2>
           <p>
-            {info.description.substring(0, 100)}
-            {info.description.length > 100 && `...`}
+            {info.description.substring(0, 70)}
+            {info.description.length > 70 && `...`}
           </p>
           <div className={classes.extra_info}>
             <p>by {info.author}</p>
