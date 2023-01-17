@@ -6,18 +6,20 @@
 .card {
   background-color: white;
   width: var(--card-width);
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 .info_container {
   height: calc(var(--card-height) - var(--card-width));
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1.1rem;
+  border-radius: 0 0 0.3rem 0.3rem;
+  background-color: white;
 }
 
 .info_container h2 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-family: "Lora", serif;
   margin-bottom: 0.7rem;
 }
@@ -30,11 +32,15 @@
 .extra_info {
   margin-top: auto;
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 
-.extra_info div {
+.flag {
   margin-left: auto;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
 .recipe_photo_container {
@@ -46,11 +52,5 @@
   height: 100%;
   object-fit: cover;
   overflow: hidden;
-  border-radius: 0.5rem 0.5rem 0 0;
-}
-
-.flag {
-  height: 1.5rem;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 0.3rem 0.3rem 0 0;
 }
