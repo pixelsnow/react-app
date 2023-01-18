@@ -22,6 +22,9 @@
   margin: 0.5rem 0;
 }
 
+.form textarea {
+  padding: 0.8rem 1rem;
+}
 .form label {
   margin-top: 0.3rem;
   color: #aaa;
@@ -68,4 +71,5 @@
 
 .input_error {
   color: rgb(255, 95, 95);
+  margin-bottom: 0.7srem;
 }

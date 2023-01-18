@@ -48,27 +48,14 @@ const AddRecipePage = () => {
 
   const removeIngredient = (e, index) => {
     e.preventDefault();
-    console.log(`removing ${index}`);
+    if (recipe.ingredients.length <= 1) return;
     const newRecipe = cloneDeep(recipe);
     newRecipe.ingredients.splice(index, 1);
     setRecipe(newRecipe);
   };
 
-  const inputValid = () => {
-    if (recipe.name.length < 2) {
-      return false;
-    }
-    if (!recipe.ingredients.length) {
-      return false;
-    }
-    if (recipe.name.length < 2) {
-      return false;
-    }
-  };
-
   const handlePost = (e) => {
     e.preventDefault();
-    if (!inputValid) return;
     setRecipePosted(true);
     axios
       .post("http://localhost:3001/recipes", recipe)
@@ -90,20 +77,20 @@ const AddRecipePage = () => {
       {!recipePosted && (
         <div>
           <h1>Add your recipe</h1>
-          <form className={classes.form}>
+          <form className={classes.form} onSubmit={(e) => handlePost(e)}>
             <label htmlFor="name">Title</label>
             <input
-              minlength="2"
-              maxlength="50"
+              autoFocus
+              required
+              maxLength="50"
               id="name"
               name="name"
               type="text"
               onChange={(e) => changeHandler(e)}
             />
-            <p className={classes.input_error}>Please enter the recipe title</p>
             <label htmlFor="author">Your name</label>
             <input
-              maxlength="25"
+              maxLength="25"
               id="author"
               name="author"
               type="text"
@@ -111,16 +98,15 @@ const AddRecipePage = () => {
             />
             <label htmlFor="description">Description</label>
             <textarea
-              maxlength="100000"
+              maxLength="100000"
               id="description"
               name="description"
               cols="30"
-              rows="10"
+              rows="7"
               onChange={(e) => changeHandler(e)}
             ></textarea>
             <label htmlFor="country">Country</label>
             <select
-              minlength="2"
               id="country"
               name="country"
               defaultValue={""}
@@ -417,11 +403,11 @@ const AddRecipePage = () => {
                 <label htmlFor="quantity">Quantity</label>
               </div>
             )}
-
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index} className={classes.ingredient_container}>
                 <div className={classes.ingredient_field}>
                   <input
+                    required
                     id="ingredient"
                     name="ingredient"
                     type="text"
@@ -438,10 +424,14 @@ const AddRecipePage = () => {
                     onChange={(e) => changeIngredient(e, index)}
                   />
                 </div>
-                <button onClick={(e) => removeIngredient(e, index)}>X</button>
+                <button
+                  className={recipe.ingredients.length <= 1 ? "hidden" : ""}
+                  onClick={(e) => removeIngredient(e, index)}
+                >
+                  X
+                </button>
               </div>
             ))}
-            <p className={classes.input_error}>Please add ingredients</p>
             <button
               className={classes.large_button}
               onClick={(e) => addIngredient(e)}
@@ -450,7 +440,7 @@ const AddRecipePage = () => {
             </button>
             <label htmlFor="image">Image link</label>
             <input
-              maxlength="3000"
+              maxLength="3000"
               id="image"
               name="image"
               type="text"
@@ -458,19 +448,15 @@ const AddRecipePage = () => {
             />
             <label htmlFor="instructions">Instructions</label>
             <textarea
-              minlength="5"
-              maxlength="100000"
+              required
+              maxLength="100000"
               id="instructions"
               name="instructions"
               cols="30"
-              rows="10"
+              rows="7"
               onChange={(e) => changeHandler(e)}
             ></textarea>
-            <button
-              className={classes.large_button}
-              type="submit"
-              onClick={(e) => handlePost(e)}
-            >
+            <button className={classes.large_button} type="submit">
               Submit
             </button>
           </form>

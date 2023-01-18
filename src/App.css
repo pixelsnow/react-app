@@ -39,4 +39,9 @@ button {
   border-radius: 0.3rem;
   background-color: black;
   color: white;
+  cursor: pointer;
+}
+
+.hidden {
+  opacity: 0;
 }
