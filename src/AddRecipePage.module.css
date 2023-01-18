@@ -4,18 +4,68 @@
   align-items: center;
 }
 
+.form_page h1 {
+  margin: 2rem 0;
+  font-size: 3rem;
+  color: white;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: 650px;
+}
+
+.form input,
+.form textarea,
+.form select {
+  margin: 0.5rem 0;
+}
+
+.form label {
+  margin-top: 0.3rem;
+  color: #aaa;
+}
+
+.ingredient_labels {
+  display: flex;
+}
+
+.ingredient_labels label {
+  width: 47%;
 }
 
 .ingredient_container {
-  background-color: antiquewhite;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ingredient_container button {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ingredient_field {
   display: flex;
   flex-direction: column;
+  width: 45%;
+}
+
+.ingredient_field:first-child {
+  margin-right: 2%;
+}
+
+.large_button {
+  height: 3rem;
+  width: 10rem;
+}
+
+.input_error {
+  color: rgb(255, 95, 95);
 }

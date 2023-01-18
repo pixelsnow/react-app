@@ -54,8 +54,21 @@ const AddRecipePage = () => {
     setRecipe(newRecipe);
   };
 
+  const inputValid = () => {
+    if (recipe.name.length < 2) {
+      return false;
+    }
+    if (!recipe.ingredients.length) {
+      return false;
+    }
+    if (recipe.name.length < 2) {
+      return false;
+    }
+  };
+
   const handlePost = (e) => {
     e.preventDefault();
+    if (!inputValid) return;
     setRecipePosted(true);
     axios
       .post("http://localhost:3001/recipes", recipe)
@@ -87,9 +100,10 @@ const AddRecipePage = () => {
               type="text"
               onChange={(e) => changeHandler(e)}
             />
+            <p className={classes.input_error}>Please enter the recipe title</p>
             <label htmlFor="author">Your name</label>
             <input
-              maxlength="30"
+              maxlength="25"
               id="author"
               name="author"
               type="text"
@@ -97,6 +111,7 @@ const AddRecipePage = () => {
             />
             <label htmlFor="description">Description</label>
             <textarea
+              maxlength="100000"
               id="description"
               name="description"
               cols="30"
@@ -396,10 +411,16 @@ const AddRecipePage = () => {
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
             </select>
+            {recipe.ingredients.length > 0 && (
+              <div className={classes.ingredient_labels}>
+                <label htmlFor="ingredient">Ingredient</label>
+                <label htmlFor="quantity">Quantity</label>
+              </div>
+            )}
+
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index} className={classes.ingredient_container}>
                 <div className={classes.ingredient_field}>
-                  <label htmlFor="ingredient">Ingredient</label>
                   <input
                     id="ingredient"
                     name="ingredient"
@@ -409,7 +430,6 @@ const AddRecipePage = () => {
                   />
                 </div>
                 <div className={classes.ingredient_field}>
-                  <label htmlFor="quantity">Quantity</label>
                   <input
                     id="quantity"
                     name="quantity"
@@ -421,12 +441,16 @@ const AddRecipePage = () => {
                 <button onClick={(e) => removeIngredient(e, index)}>X</button>
               </div>
             ))}
-
-            <button onClick={(e) => addIngredient(e)}>
-              Add another ingredient
+            <p className={classes.input_error}>Please add ingredients</p>
+            <button
+              className={classes.large_button}
+              onClick={(e) => addIngredient(e)}
+            >
+              +
             </button>
             <label htmlFor="image">Image link</label>
             <input
+              maxlength="3000"
               id="image"
               name="image"
               type="text"
@@ -434,15 +458,19 @@ const AddRecipePage = () => {
             />
             <label htmlFor="instructions">Instructions</label>
             <textarea
-              minlength="2"
-              maxlength="10000"
+              minlength="5"
+              maxlength="100000"
               id="instructions"
               name="instructions"
               cols="30"
               rows="10"
               onChange={(e) => changeHandler(e)}
             ></textarea>
-            <button type="submit" onClick={(e) => handlePost(e)}>
+            <button
+              className={classes.large_button}
+              type="submit"
+              onClick={(e) => handlePost(e)}
+            >
               Submit
             </button>
           </form>
