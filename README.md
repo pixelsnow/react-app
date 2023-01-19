@@ -1,5 +1,12 @@
 # TasteIT
 
+
+
+## How to run
+
+- `npm run server` to run json-server
+- `npm start` to run app
+
 ## Must-have features
 
 - ✓ Function components + hooks
@@ -10,7 +17,7 @@
 - ✓ Form
 - ✓ Routing
 - ✓ GET and POST to JSON-server db.json
-- Styling
-- Optimized and clean code without errors or warnings
+- ✓ Styling
+- ✓ Optimized and clean code without errors or warnings
 - ✓ User can add and see recipes.
 - ✓ For the countries use https://restcountries.com/API
