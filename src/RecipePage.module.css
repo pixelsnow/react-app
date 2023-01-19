@@ -4,13 +4,21 @@
   padding: 4rem;
 }
 
+.back_button {
+  width: 3rem;
+  height: 3rem;
+}
+
 .recipe_page h1 {
   font-size: 3rem;
+  color: black;
 }
 
 .recipe_title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
 }
 
 .author {

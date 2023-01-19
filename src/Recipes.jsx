@@ -12,17 +12,6 @@ const Recipes = () => {
   const [countrySearchValue, setCountrySearchValue] = useState("");
   const [countries, setCountries] = useState([]);
 
-  /* const parseIngredients = () => {
-    const res = [];
-    recipes.forEach((recipe) => {
-      recipe.ingredients.forEach((ingredient) => {
-        if (!res.includes(ingredient.ingredient))
-          res.push(ingredient.ingredient);
-      });
-    });
-    return res;
-  }; */
-
   // Creates a list of all countries from recipes
   const parseCountries = (recipes) => {
     const res = [];
@@ -38,7 +27,6 @@ const Recipes = () => {
       setRecipes(data.data);
       setFilteredRecipes(data.data);
       setCountries(parseCountries(data.data));
-      /* console.log(parseIngredients()); */
     });
   }, []);
 
@@ -78,34 +66,35 @@ const Recipes = () => {
 
   return (
     <div className={classes.recipes_page}>
-      <h1>Recipes</h1>
-      <input
-        className={classes.search}
-        placeholder="Search"
-        type="text"
-        value={searchValue}
-        onChange={(e) => handleSearches(e, "text")}
-      />
-      <input
-        className={classes.search_ingredients}
-        placeholder="Search by ingredient"
-        type="text"
-        value={ingredientSearchValue}
-        onChange={(e) => handleSearches(e, "ingredient")}
-      />
-      <select
-        className={classes.search_countries}
-        defaultValue={""}
-        onChange={(e) => handleSearches(e, "country")}
-      >
-        <option value="">All countries</option>
-        {countries.map((country) => (
-          <option key={country} value={country}>
-            {country}
-          </option>
-        ))}
-      </select>
-      <p className={classes.recipes_count}>{filteredRecipes.length} recipes</p>
+      <h1>Search recipes</h1>
+      <div className={classes.search_fields}>
+        <input
+          className={classes.search}
+          placeholder="Search"
+          type="text"
+          value={searchValue}
+          onChange={(e) => handleSearches(e, "text")}
+        />
+        <input
+          className={classes.search_ingredients}
+          placeholder="Search by ingredient"
+          type="text"
+          value={ingredientSearchValue}
+          onChange={(e) => handleSearches(e, "ingredient")}
+        />
+        <select
+          className={classes.search_countries}
+          defaultValue={""}
+          onChange={(e) => handleSearches(e, "country")}
+        >
+          <option value="">All countries</option>
+          {countries.map((country) => (
+            <option key={country} value={country}>
+              {country}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className={classes.cards_container}>
         {filteredRecipes.map((recipe) => (
           <RecipeCard key={recipe.id} info={recipe} />

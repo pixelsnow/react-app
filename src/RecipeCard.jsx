@@ -9,6 +9,7 @@ const RecipeCard = ({ info }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
 
   useEffect(() => {
+    if (!info.country.length) return;
     axios
       .get(`https://restcountries.com/v3.1/name/${info.country}`)
       .then((data) => {
@@ -22,7 +23,7 @@ const RecipeCard = ({ info }) => {
         <NavLink className={classes.card_link} to={`/${info.id}`}>
           {!imgLoaded && (
             <div className={classes.img_placeholder}>
-              <span class="material-symbols-outlined">no_photography</span>
+              <span className="material-symbols-outlined">no_photography</span>
             </div>
           )}
           <img
@@ -43,7 +44,6 @@ const RecipeCard = ({ info }) => {
         </p>
         <div className={classes.extra_info}>
           <p>by {info.author}</p>
-
           <img className={classes.flag} src={flag} alt={info.country} />
         </div>
       </div>

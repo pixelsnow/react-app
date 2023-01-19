@@ -1,20 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora&family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400&family=Lora:wght@400;600&family=PT+Sans&display=swap");
 
 :root {
   --card-height: 450px;
   --card-width: 300px;
+  --main-color: #b6bfa4;
+  --pale-pink: #edecec;
+  --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 html {
-  background: linear-gradient(to bottom, rgb(87, 87, 87), rgb(33, 33, 33))
-    no-repeat center center fixed;
+  /* background: #edecec; */
+  background: linear-gradient(to bottom, var(--pale-pink), #e6d4d0) no-repeat
+    center center fixed;
 }
 
 h1,
 h2,
 h3 {
   font-family: "Lora", serif;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 input,
@@ -25,6 +29,15 @@ textarea {
   border: none;
   padding: 0 1rem;
   border-radius: 0.3rem;
+  box-shadow: inset var(--box-shadow);
+  outline: 1px solid rgba(170, 170, 170, 0);
+  transition: 0.3s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  outline: 1px solid #aaa;
 }
 
 input,
@@ -44,4 +57,8 @@ button {
 
 .hidden {
   opacity: 0;
+}
+
+.only {
+  width: 49%;
 }

@@ -5,23 +5,23 @@ import cloneDeep from "lodash/cloneDeep";
 
 import classes from "./AddRecipePage.module.css";
 
-const AddRecipePage = () => {
-  const emptyRecipe = {
-    id: undefined,
-    name: "",
-    author: "",
-    country: "",
-    description: "",
-    image: "",
-    ingredients: [
-      {
-        ingredient: "",
-        quantity: "",
-      },
-    ],
-    instructions: "",
-  };
+const emptyRecipe = {
+  id: undefined,
+  name: "",
+  author: "",
+  country: "",
+  description: "",
+  image: "",
+  ingredients: [
+    {
+      ingredient: "",
+      quantity: "",
+    },
+  ],
+  instructions: "",
+};
 
+const AddRecipePage = () => {
   const [recipe, setRecipe] = useState(cloneDeep(emptyRecipe));
   const [recipePosted, setRecipePosted] = useState(false);
   const [id, setId] = useState();
@@ -82,7 +82,7 @@ const AddRecipePage = () => {
             <input
               autoFocus
               required
-              maxLength="50"
+              maxLength="40"
               id="name"
               name="name"
               type="text"
@@ -399,13 +399,25 @@ const AddRecipePage = () => {
             </select>
             {recipe.ingredients.length > 0 && (
               <div className={classes.ingredient_labels}>
-                <label htmlFor="ingredient">Ingredient</label>
+                <label
+                  style={{
+                    width: recipe.ingredients.length <= 1 ? "51%" : "47%",
+                  }}
+                  htmlFor="ingredient"
+                >
+                  Ingredient
+                </label>
                 <label htmlFor="quantity">Quantity</label>
               </div>
             )}
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index} className={classes.ingredient_container}>
-                <div className={classes.ingredient_field}>
+                <div
+                  className={
+                    classes.ingredient_field +
+                    (recipe.ingredients.length <= 1 ? " only" : "")
+                  }
+                >
                   <input
                     required
                     id="ingredient"
@@ -415,7 +427,12 @@ const AddRecipePage = () => {
                     onChange={(e) => changeIngredient(e, index)}
                   />
                 </div>
-                <div className={classes.ingredient_field}>
+                <div
+                  className={
+                    classes.ingredient_field +
+                    (recipe.ingredients.length <= 1 ? " only" : "")
+                  }
+                >
                   <input
                     id="quantity"
                     name="quantity"
@@ -424,20 +441,21 @@ const AddRecipePage = () => {
                     onChange={(e) => changeIngredient(e, index)}
                   />
                 </div>
-                <button
-                  className={recipe.ingredients.length <= 1 ? "hidden" : ""}
-                  onClick={(e) => removeIngredient(e, index)}
-                >
-                  X
-                </button>
+                {recipe.ingredients.length > 1 && (
+                  <button onClick={(e) => removeIngredient(e, index)}>
+                    <span className="material-symbols-outlined">close</span>
+                  </button>
+                )}
               </div>
             ))}
-            <button
-              className={classes.large_button}
-              onClick={(e) => addIngredient(e)}
-            >
-              +
-            </button>
+            {recipe.ingredients.length < 50 && (
+              <button
+                className={classes.add_button}
+                onClick={(e) => addIngredient(e)}
+              >
+                +
+              </button>
+            )}
             <label htmlFor="image">Image link</label>
             <input
               maxLength="3000"
@@ -464,12 +482,14 @@ const AddRecipePage = () => {
       )}
 
       {recipePosted && (
-        <div>
-          Recipe {recipe.name} has been added successfully!
-          <NavLink to={`/${id}`}>
-            <button>See your recipe</button>
-          </NavLink>
-          <button onClick={addAnother}>Add another one</button>
+        <div className={classes.confirmation}>
+          <p>Recipe {recipe.name} has been added successfully!</p>
+          <div>
+            <NavLink to={`/${id}`}>
+              <button>See your recipe</button>
+            </NavLink>
+            <button onClick={addAnother}>Add another one</button>
+          </div>
         </div>
       )}
     </div>

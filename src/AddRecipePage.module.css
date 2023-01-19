@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0 2rem;
 }
 
 .form_page h1 {
   margin: 2rem 0;
   font-size: 3rem;
-  color: white;
+  color: black;
+  text-align: center;
 }
 
 .form {
@@ -27,7 +29,7 @@
 }
 .form label {
   margin-top: 0.3rem;
-  color: #aaa;
+  color: #888;
 }
 
 .ingredient_labels {
@@ -45,8 +47,8 @@
 }
 
 .ingredient_container button {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.2rem;
+  width: 1.2rem;
   margin: 0 auto;
   border-radius: 50%;
   display: flex;
@@ -54,22 +56,75 @@
   align-items: center;
 }
 
+.ingredient_container button span {
+  font-size: 1rem;
+}
+
 .ingredient_field {
   display: flex;
   flex-direction: column;
   width: 45%;
+  /* transition: 0.2s ease; */
 }
+/* 
+.ingredient_field.only {
+  width: 49%;
+} */
 
 .ingredient_field:first-child {
   margin-right: 2%;
 }
 
+.add_button {
+  background-color: var(--main-color);
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
 .large_button {
   height: 3rem;
   width: 10rem;
+  background-color: var(--main-color);
+  box-shadow: var(--box-shadow);
+  margin: 0.5rem 0;
 }
 
 .input_error {
   color: rgb(255, 95, 95);
   margin-bottom: 0.7srem;
+}
+
+/* CONFIRMATION */
+
+.confirmation {
+  background-color: white;
+  padding: 3rem;
+  margin: 3rem 0.5rem 0.5rem;
+  border-radius: 0.8rem;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.confirmation p {
+  font-size: 1.5rem;
+}
+
+.confirmation button {
+  height: 3rem;
+  padding: 0 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.confirmation > div > button {
+  margin-left: 1rem;
+  background-color: var(--main-color);
 }

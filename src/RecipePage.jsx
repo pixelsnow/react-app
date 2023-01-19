@@ -21,14 +21,15 @@ const RecipePage = () => {
         return;
       }
       setRecipeInfo(found);
-      axios
-        .get(`https://restcountries.com/v3.1/name/${found.country}`)
-        .then((data) => {
-          setFlag(data.data[0].flags.svg);
-        })
-        .catch((err) => {
-          setFlag("");
-        });
+      if (found.country.length)
+        axios
+          .get(`https://restcountries.com/v3.1/name/${found.country}`)
+          .then((data) => {
+            setFlag(data.data[0].flags.svg);
+          })
+          .catch((err) => {
+            setFlag("");
+          });
     });
   }, []);
 
@@ -37,7 +38,9 @@ const RecipePage = () => {
     return (
       <div className={classes.recipe_page}>
         <div className={classes.recipe_title}>
-          <button onClick={() => navigate(-1)}>{`<-`}</button>
+          <button className={classes.back_button} onClick={() => navigate(-1)}>
+            <span className="material-symbols-outlined">arrow_back</span>
+          </button>
           <h1>{recipeInfo.name}</h1>
           <div className={classes.flag_container}>
             <img className={classes.flag} src={flag} alt={recipeInfo.country} />
@@ -46,7 +49,6 @@ const RecipePage = () => {
               by {recipeInfo.author || "unknown author"}
             </p>
           </div>
-          <div></div>
         </div>
         <div>
           <div className={classes.image_container}>
