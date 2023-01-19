@@ -6,6 +6,7 @@ import classes from "./RecipeCard.module.css";
 
 const RecipeCard = ({ info }) => {
   const [flag, setFlag] = useState("");
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,10 +20,16 @@ const RecipeCard = ({ info }) => {
     <div className={classes.card}>
       <div className={classes.recipe_photo_container}>
         <NavLink className={classes.card_link} to={`/${info.id}`}>
+          {!imgLoaded && (
+            <div className={classes.img_placeholder}>
+              <span class="material-symbols-outlined">no_photography</span>
+            </div>
+          )}
           <img
-            className={classes.recipe_photo}
+            className={classes.recipe_photo + (imgLoaded ? "" : "hidden")}
             src={info.image}
             alt={info.name}
+            onLoad={() => setImgLoaded(true)}
           />
         </NavLink>
       </div>
