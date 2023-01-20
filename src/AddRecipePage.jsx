@@ -127,9 +127,7 @@ const AddRecipePage = () => {
               defaultValue={""}
               onChange={(e) => changeHandler(e)}
             >
-              <option value="" disabled>
-                Select country
-              </option>
+              <option value="">Select country</option>
               {allCountries.map((country) => (
                 <option key={country} value={country}>
                   {country}

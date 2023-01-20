@@ -37,12 +37,13 @@
 .recipe_body {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 4rem;
 }
 
 .image_container {
   height: 80vh;
   width: 50%;
-  min-width: 500px;
+  min-width: 550px;
   overflow: hidden;
 }
 
