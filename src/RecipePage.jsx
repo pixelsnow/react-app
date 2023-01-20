@@ -15,24 +15,27 @@ const RecipePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/recipes`).then((data) => {
-      const allRecipes = data.data;
-      const found = allRecipes.find((recipe) => +recipe.id === +recipeId);
-      if (found === undefined) {
-        setError(true);
-        return;
-      }
-      setRecipeInfo(found);
-      if (found.country.length)
-        axios
-          .get(`https://restcountries.com/v3.1/name/${found.country}`)
-          .then((data) => {
-            setFlag(data.data[0].flags.svg);
-          })
-          .catch((err) => {
-            setFlag("");
-          });
-    });
+    axios
+      .get(`http://localhost:4000/recipes`)
+      .then((data) => {
+        const allRecipes = data.data;
+        const found = allRecipes.find((recipe) => +recipe.id === +recipeId);
+        if (found === undefined) {
+          setError(true);
+          return;
+        }
+        setRecipeInfo(found);
+        if (found.country.length)
+          axios
+            .get(`https://restcountries.com/v3.1/name/${found.country}`)
+            .then((data) => {
+              setFlag(data.data[0].flags.svg);
+            })
+            .catch((err) => {
+              setFlag("");
+            });
+      })
+      .catch((err) => alert("Server error"));
   }, [recipeId]);
 
   if (error) return <NotFound />;
