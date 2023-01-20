@@ -22,8 +22,7 @@
   justify-content: center;
   gap: 2rem;
   height: 100%;
-  transition: scale 0.5s ease;
-  transition: background-color 0.2s ease;
+  transition: 0.2s ease;
   line-height: 140%;
 }
 

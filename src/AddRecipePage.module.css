@@ -81,21 +81,18 @@
   font-size: 1.5rem;
   box-shadow: var(--box-shadow);
 }
+
 .submit_container {
   display: flex;
   justify-content: end;
 }
+
 .large_button {
   height: 3rem;
   width: 10rem;
   background-color: var(--main-color);
   box-shadow: var(--box-shadow);
   margin: 0.5rem 0;
-}
-
-.input_error {
-  color: rgb(255, 95, 95);
-  margin-bottom: 0.7srem;
 }
 
 /* CONFIRMATION */
