@@ -10,7 +10,7 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 
 - `npm install` to install all dependencies
 - `npm run server` to run JSON Server
-- `npm start` to run app
+- `npm start` to run the app on http://localhost:3000/
 
 ## Technologies used
 
