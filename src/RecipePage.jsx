@@ -17,7 +17,7 @@ const RecipePage = () => {
   useEffect(() => {
     axios.get(`http://localhost:3001/recipes`).then((data) => {
       const allRecipes = data.data;
-      const found = allRecipes.find((recipe) => recipe.id == recipeId);
+      const found = allRecipes.find((recipe) => +recipe.id === +recipeId);
       if (found === undefined) {
         setError(true);
         return;
@@ -33,7 +33,7 @@ const RecipePage = () => {
             setFlag("");
           });
     });
-  }, []);
+  }, [recipeId]);
 
   if (error) return <NotFound />;
   else

@@ -46,7 +46,7 @@
 .extra_info {
   margin-top: auto;
   display: flex;
-  align-items: end;
+  align-items: fend;
 }
 
 .flag {
