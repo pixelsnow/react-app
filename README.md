@@ -1,6 +1,6 @@
 # TasteIT
 
-Recipe app where users from all over the world can share their favourite dishes 🍲
+Recipe app where users from all over the world can share their favourite dishes 🥘
 
 Created as a part of React course by [@margittennosaar](https://www.github.com/margittennosaar) 🦊
 
