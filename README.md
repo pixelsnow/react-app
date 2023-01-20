@@ -16,6 +16,7 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 - React
 - Axios
 - JSON Server (for development)
+- [Countries API](https://restcountries.com/)
 
 ### Must-have features
 
@@ -30,4 +31,4 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 - ✓ Styling
 - ✓ Optimized and clean code without errors or warnings
 - ✓ User can add and see recipes.
-- ✓ For the countries use https://restcountries.com/API
+- ✓ For the countries use [Countries API](https://restcountries.com/)
