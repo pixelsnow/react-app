@@ -11,7 +11,11 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 - `npm run server` to run json-server
 - `npm start` to run app
 
-## About the
+## Technologies used
+
+- React
+- Axios
+- JSON Server (for development)
 
 ### Must-have features
 
