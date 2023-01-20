@@ -8,6 +8,7 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 
 ## How to run
 
+- `npm install` to install all dependencies
 - `npm run server` to run JSON Server
 - `npm start` to run app
 
