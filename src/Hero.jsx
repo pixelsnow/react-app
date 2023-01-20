@@ -1,4 +1,5 @@
 import React from "react";
+
 import bgVid from "./pot.mp4";
 
 import classes from "./Hero.module.css";

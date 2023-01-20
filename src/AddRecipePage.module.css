@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0 2rem;
+  margin: 0 0 3rem;
 }
 
 .form_page h1 {
@@ -64,12 +64,7 @@
   display: flex;
   flex-direction: column;
   width: 45%;
-  /* transition: 0.2s ease; */
 }
-/* 
-.ingredient_field.only {
-  width: 49%;
-} */
 
 .ingredient_field:first-child {
   margin-right: 2%;
@@ -86,7 +81,10 @@
   font-size: 1.5rem;
   box-shadow: var(--box-shadow);
 }
-
+.submit_container {
+  display: flex;
+  justify-content: end;
+}
 .large_button {
   height: 3rem;
   width: 10rem;

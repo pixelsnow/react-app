@@ -1,0 +1,36 @@
+.error {
+  background-color: white;
+  padding: 3rem;
+  margin: 3rem 0.5rem 0.5rem;
+  border-radius: 0.8rem;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.error p {
+  font-size: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.buttons button {
+  height: 3rem;
+  padding: 0 1rem;
+  background-color: var(--main-color);
+  box-shadow: var(--box-shadow);
+}
+
+.buttons > button {
+  background-color: black;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

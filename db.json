@@ -570,25 +570,6 @@
       "id": 13
     },
     {
-      "name": "",
-      "author": "",
-      "country": "Argentina",
-      "description": "sferasgqrweg",
-      "image": "",
-      "ingredients": [
-        {
-          "ingredient": "paneer",
-          "quantity": "3"
-        },
-        {
-          "ingredient": "dfgdfag",
-          "quantity": "35"
-        }
-      ],
-      "instructions": "",
-      "id": 14
-    },
-    {
       "name": "Very amazing bolognese recipe from dad!!!!!!!",
       "author": "Valeria Maria Bologna Vagapova",
       "country": "Kiribati",
@@ -612,59 +593,19 @@
       "id": 15
     },
     {
-      "name": "",
-      "author": "",
-      "country": "",
-      "description": "asfd",
-      "image": "img",
-      "ingredients": [
-        {
-          "ingredient": "",
-          "quantity": ""
-        }
-      ],
-      "instructions": "",
-      "id": 16
-    },
-    {
-      "name": "",
-      "author": "",
-      "country": "",
-      "description": "sdfsdf",
-      "image": "",
-      "ingredients": [
-        {
-          "ingredient": "paneer",
-          "quantity": "1"
-        }
-      ],
-      "instructions": "",
-      "id": 17
-    },
-    {
-      "name": "wqef",
+      "name": "Test pasta with no photo",
       "author": "",
       "country": "",
       "description": "",
       "image": "",
-      "ingredients": [],
-      "instructions": "qwef",
-      "id": 18
-    },
-    {
-      "name": "sdfsdf",
-      "author": "f",
-      "country": "",
-      "description": "sdf",
-      "image": "",
       "ingredients": [
         {
-          "ingredient": "paneer",
+          "ingredient": "test",
           "quantity": "1"
         }
       ],
-      "instructions": "sdf",
-      "id": 19
+      "instructions": "no name, no image, no country, no description",
+      "id": 16
     }
   ]
 }

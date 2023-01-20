@@ -1,6 +1,6 @@
 .footer {
   margin-top: auto;
-  background-color: #aaa;
+  background-color: var(--mid-gray);
   color: white;
   padding: 0.2rem 0;
   display: flex;

@@ -3,15 +3,22 @@
 :root {
   --card-height: 450px;
   --card-width: 300px;
-  --main-color: #b6bfa4;
+  --main-color: #abb89f;
   --pale-pink: #edecec;
+  --pale-something: #dacaca;
+  --pale-gray: #efefef;
+  --light-gray: #a4a4a4;
+  --mid-gray: #999;
   --box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 html {
-  /* background: #edecec; */
-  background: linear-gradient(to bottom, var(--pale-pink), #e6d4d0) no-repeat
-    center center fixed;
+  background: linear-gradient(
+      to bottom,
+      var(--pale-pink),
+      var(--pale-something)
+    )
+    no-repeat center center fixed;
 }
 
 h1,
@@ -43,6 +50,10 @@ textarea:hover {
 input,
 select {
   height: 3rem;
+}
+
+a {
+  color: inherit;
 }
 
 button {

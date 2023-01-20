@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import classes from "./Recipes.module.css";
 import RecipeCard from "./RecipeCard";
+
+import classes from "./Recipes.module.css";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);

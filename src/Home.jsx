@@ -10,12 +10,28 @@ const Home = () => {
     <div>
       <Hero />
       <div className={classes.cta_container}>
-        <div className={classes.cta}>
-          <NavLink to="">
-            <h3></h3>
-          </NavLink>
-          <p></p>
-        </div>
+        <NavLink to="/recipes">
+          <div className={classes.cta}>
+            <h3>Browse recipes</h3>
+            <p>Travel the word from your kitchen</p>
+          </div>
+        </NavLink>
+        <NavLink to="/add_recipe">
+          <div className={classes.cta}>
+            <h3>Add your own recipe</h3>
+            <p>
+              Your country's food is missing from the database? Share your
+              favourite meals with us{" "}
+              <span className="material-symbols-outlined">favorite</span>
+            </p>
+          </div>
+        </NavLink>
+        <a href="https://en.bc.fi/" target="_blank" rel="noreferrer">
+          <div className={classes.cta}>
+            <h3>Want to know more?</h3>
+            <p>Visit Business College Helsinki Website</p>
+          </div>
+        </a>
       </div>
     </div>
   );

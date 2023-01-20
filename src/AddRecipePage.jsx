@@ -474,9 +474,11 @@ const AddRecipePage = () => {
               rows="7"
               onChange={(e) => changeHandler(e)}
             ></textarea>
-            <button className={classes.large_button} type="submit">
-              Submit
-            </button>
+            <div className={classes.submit_container}>
+              <button className={classes.large_button} type="submit">
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       )}

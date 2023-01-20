@@ -15,7 +15,7 @@ const RecipeCard = ({ info }) => {
       .then((data) => {
         setFlag(data.data[0].flags.svg);
       });
-  }, []);
+  }, [info.country]);
 
   return (
     <div className={classes.card}>
@@ -43,7 +43,7 @@ const RecipeCard = ({ info }) => {
           {info.description.length > 70 && `...`}
         </p>
         <div className={classes.extra_info}>
-          <p>by {info.author}</p>
+          {info.author.length > 0 && <p>by {info.author}</p>}
           <img className={classes.flag} src={flag} alt={info.country} />
         </div>
       </div>
