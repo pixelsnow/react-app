@@ -8,7 +8,7 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 
 ## How to run
 
-- `npm run server` to run json-server
+- `npm run server` to run JSON Server
 - `npm start` to run app
 
 ## Technologies used
