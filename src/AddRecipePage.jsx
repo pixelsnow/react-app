@@ -58,12 +58,12 @@ const AddRecipePage = () => {
     e.preventDefault();
     setRecipePosted(true);
     axios
-      .post("http://localhost:3001/recipes", recipe)
+      .post("http://localhost:4000/recipes", recipe)
       .then((res) => {
         setId(res.data.id);
       })
       .catch((err) => {
-        alert(err);
+        alert("Server error");
       });
   };
 

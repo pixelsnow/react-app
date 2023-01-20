@@ -2,7 +2,7 @@
   background-color: white;
   max-width: 1400px;
   min-width: 1200px;
-  padding: 2rem 6rem 4rem;
+  padding: 2rem 7rem 4rem;
 }
 
 .back_button {
@@ -37,10 +37,6 @@
 .recipe_body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.recipe_text {
-  margin-left: 2rem;
 }
 
 .image_container {

@@ -24,11 +24,14 @@ const Recipes = () => {
 
   // Fetches all recipe data
   useEffect(() => {
-    axios.get(`http://localhost:3001/recipes`).then((data) => {
-      setRecipes(data.data);
-      setFilteredRecipes(data.data);
-      setCountries(parseCountries(data.data));
-    });
+    axios
+      .get(`http://localhost:4000/recipes`)
+      .then((data) => {
+        setRecipes(data.data);
+        setFilteredRecipes(data.data);
+        setCountries(parseCountries(data.data));
+      })
+      .catch((err) => alert("Server error"));
   }, []);
 
   // Filters recipes by text search, ingredient search and country
