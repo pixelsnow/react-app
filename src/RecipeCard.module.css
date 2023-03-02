@@ -59,13 +59,13 @@
 .recipe_photo_container {
   height: var(--card-width);
   overflow: hidden;
+  border-radius: 0.8rem 0.8rem 0 0;
 }
 
 .recipe_photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.8rem 0.8rem 0 0;
   transition: 0.5s ease;
 }
 

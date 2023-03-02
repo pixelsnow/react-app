@@ -17,7 +17,8 @@ const Recipes = () => {
   const parseCountries = (recipes) => {
     const res = [];
     recipes.forEach((recipe) => {
-      if (!res.includes(recipe.country)) res.push(recipe.country);
+      if (!res.includes(recipe.country) && recipe.country.length)
+        res.push(recipe.country);
     });
     return res;
   };
