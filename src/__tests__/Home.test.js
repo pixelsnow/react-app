@@ -3,13 +3,20 @@ import React from "react";
 import { screen } from "@testing-library/react";
 
 import App from "../App";
+import AddRecipePage from "../AddRecipePage";
 
 test("renders the correct content", () => {
-  const { getByText, getByLabelText } = render(<App />);
+  const { getByText } = render(<App />);
 
   // examples: testing from the user's perspective
   screen.getByText("Want to know more?");
   // getByLabelText("What needs to be done?");
+});
+
+test("label", () => {
+  const { getByLabelText } = render(<AddRecipePage />);
+
+  screen.getByLabelText("Your name");
 });
 
 // simulating user interaction
