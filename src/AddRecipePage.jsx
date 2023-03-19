@@ -156,7 +156,6 @@ const AddRecipePage = () => {
                   }
                 >
                   <input
-                    required
                     id="ingredient"
                     name="ingredient"
                     type="text"

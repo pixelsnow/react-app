@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test - App front page App matches Snapshot 1`] = `
+<div
+  className="layout"
+>
+  <header
+    className="header"
+  >
+    <a
+      aria-current="page"
+      className="logo_link active"
+      href="/"
+      onClick={[Function]}
+    >
+      <div
+        className="logo_container"
+      >
+        <span
+          className="material-symbols-outlined"
+        >
+          local_dining
+        </span>
+        <h2>
+          TasteIT
+        </h2>
+      </div>
+    </a>
+    <nav
+      className="nav"
+    >
+      <ul>
+        <a
+          className=""
+          href="/recipes"
+          onClick={[Function]}
+        >
+          <li>
+            Browse recipes
+          </li>
+        </a>
+        <a
+          className=""
+          href="/add_recipe"
+          onClick={[Function]}
+        >
+          <li>
+            Add a recipe
+          </li>
+        </a>
+        <a
+          className=""
+          href="/about"
+          onClick={[Function]}
+        >
+          <li>
+            About
+          </li>
+        </a>
+      </ul>
+    </nav>
+  </header>
+  <main
+    className="main"
+  >
+    <div>
+      <div
+        className="hero"
+      >
+        <video
+          autoPlay={true}
+          className="bg_video"
+          loop={true}
+          muted={true}
+        >
+          <source
+            src="pot.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div
+        className="cta_container"
+      >
+        <a
+          className=""
+          href="/recipes"
+          onClick={[Function]}
+        >
+          <div
+            className="cta"
+          >
+            <h3>
+              Browse recipes
+            </h3>
+            <p>
+              Travel the word from your kitchen
+            </p>
+          </div>
+        </a>
+        <a
+          className=""
+          href="/add_recipe"
+          onClick={[Function]}
+        >
+          <div
+            className="cta"
+          >
+            <h3>
+              Add your own recipe
+            </h3>
+            <p>
+              Your country's food is missing from the database? Share your favourite meals with us
+               
+              <span
+                className="material-symbols-outlined"
+              >
+                favorite
+              </span>
+            </p>
+          </div>
+        </a>
+        <a
+          href="https://en.bc.fi/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <div
+            className="cta"
+          >
+            <h3>
+              Want to know more?
+            </h3>
+            <p>
+              Visit Business College Helsinki Website
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="footer"
+  >
+    by Valeria Vagapova
+  </footer>
+</div>
+`;
