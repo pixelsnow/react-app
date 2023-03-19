@@ -9,24 +9,30 @@ import "@testing-library/jest-dom";
 import App from "../App";
 import Home from "../Home";
 import AddRecipePage from "../AddRecipePage";
+import axios from "axios";
+
+import { parseCountries } from "../Recipes";
 
 // Making sure that all 3 cards on the home page are rendered correctly
-describe("Home component - testing that cards are rendered", () => {
+describe("Home component - render tests", () => {
   test("Exactly 3 headings of 3rd level exist", () => {
     render(<Home />, { wrapper: BrowserRouter });
     const titles = screen.getAllByRole("heading", { level: 3 });
     expect(titles.length).toBe(3);
   });
+
   test("Heading 1 is rendered correctly", () => {
     render(<Home />, { wrapper: BrowserRouter });
     const title1 = screen.getByText("Browse recipes");
     expect(title1).toBeInTheDocument();
   });
+
   test("Heading 2 is rendered correctly", () => {
     render(<Home />, { wrapper: BrowserRouter });
     const title2 = screen.getByText("Add your own recipe");
     expect(title2).toBeInTheDocument();
   });
+
   test("Heading 3 is rendered correctly", () => {
     render(<Home />, { wrapper: BrowserRouter });
     const title3 = screen.getByText("Want to know more?");
@@ -43,76 +49,133 @@ describe("Snapshot test - App front page", () => {
 });
 
 // Navigation test - mimicking user navigating the website
-describe("Navigation test", () => {
-  test("Navigate to about page, rendered correctly", async () => {
+// Also checking that pages were rendered correctly in the process
+describe("Navigation tests", () => {
+  test("Navigated to about page, it's rendered correctly", async () => {
     render(<App />);
     const user = userEvent.setup();
-    // Verifying page content for the About page
     await user.click(screen.getByText(/About/i));
+    // Verifying heading for the About page
     expect(screen.getByText(/About TasteIT/i)).toBeInTheDocument();
+    // Checking that link to my Github is correct
+    const myLink = screen.getByText("Valeria Vagapova");
+    expect(myLink.getAttribute("href")).toBe("https://github.com/pixelsnow");
+    // Checking that link to college is correct
+    const collegeLink = screen.getByText("Business College Helsinki");
+    expect(collegeLink.getAttribute("href")).toBe("https://en.bc.fi/");
   });
 
-  test("Navigate to recipes page, rendered correctly", async () => {
+  test("Navigated to recipes page, it's rendered correctly", async () => {
     render(<App />);
     const user = userEvent.setup();
-    // Verifying page content for the recipes page
     await user.click(screen.getByText(/Browse Recipes/i));
     expect(screen.getByText(/Search recipes/i)).toBeInTheDocument();
   });
 
-  test("Navigate to add recipe page, rendered correctly", async () => {
+  test("Navigated to add recipe page, it's rendered correctly", async () => {
     render(<App />);
     const user = userEvent.setup();
-    // Verifying page content for add recipe page
     await user.click(screen.getByText(/Add a recipe/i));
     expect(screen.getByText(/Add your recipe/i)).toBeInTheDocument();
   });
 });
 
-describe("Form test", () => {
+// Testing form functionality, mimicking user actions
+describe("Form tests", () => {
   test("Checking that form is rendered properly", () => {
-    render(<AddRecipePage />);
+    render(<AddRecipePage />, { wrapper: BrowserRouter });
     expect(screen.getByText(/^your name$/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/^title$/i)).toBeInTheDocument();
   });
 
   test("Checking that form successfully submits with correct data", async () => {
     render(<AddRecipePage />, { wrapper: BrowserRouter });
+
+    // Fill in required fields
+    // Title
     const titleInput = screen.getByLabelText(/title/i);
-    console.log(titleInput);
+    fireEvent.change(titleInput, { target: { value: "New Recipe" } });
+    // Description
     const instructionsInput = screen.getByLabelText(/instructions/i);
+    fireEvent.change(instructionsInput, { target: { value: "Cook and eat!" } });
+
+    // Submit the form
     const submitButton = screen.getByRole("button", { name: "Submit" });
-    userEvent.type(titleInput, "New recipe");
-    userEvent.type(instructionsInput, "Cook and eat!");
     await userEvent.click(submitButton);
-    const confirmation = screen.getByText("See your recipe");
+
+    // Confirm that recipe with correct title was posted
+    const confirmation = screen.getByText(
+      "Recipe New Recipe has been added successfully!"
+    );
     expect(confirmation).toBeInTheDocument();
   });
 });
 
-// simulating user interaction
-/*
-test("allows users to add items to their list", () => {
-  const { getByText, getByLabelText } = render(<App />);
-
-  const input = getByLabelText("What needs to be done?");
-  const button = getByText("Add #1");
-
-  fireEvent.change(input, { target: { value: "Feed cats" } });
-  fireEvent.click(button);
-  // look at @testing-library/user-event for more interactions
-  // https://testing-library.com/docs/user-event/intro
-
-  getByText("Feed cats");
-  getByText("Add #2");
+// Testing that Countries API is up and works
+describe("test API", () => {
+  test("countries API", async () => {
+    await axios
+      .get(`https://restcountries.com/v3.1/name/Russia`)
+      .then((data) => {
+        expect(data.data[0].name.official).toBe("Russian Federation");
+        expect(data.data[0].cca2).toBe("RU");
+      });
+  });
 });
-*/
 
-test("Opens BCH link on a new tab", () => {
-  render(<App />);
-  //const collegeLink = screen.getByText("");
-  // expect(collegeLink.getAttribute("href").toBe("http://bc.fi"));
-  /* document.addEventListener("DOMContentLoaded", function() {
-      expect(document.querySelector('a').getAttribute('href')).toBe('http://bc.fi');
-    }); */
+// Testing an "under the hood" function parseCountries
+describe("test an under-the-hood function", () => {
+  // parseCountries is a function that takes in an array of recipe objects and returns an array of unique countries that are encountered among the recipes.
+  // In this test it's important to check that countries are not duplicated and that recipes without a country filled in don't affect the result.
+
+  test("parseCountries test", () => {
+    const recipes = [
+      {
+        id: 1,
+        name: "Recipe1",
+        country: "Italy",
+        instructions: "hi",
+      },
+      {
+        id: 2,
+        name: "Recipe2",
+        country: "Italy",
+        instructions: "hi",
+      },
+      {
+        id: 3,
+        name: "Recipe3",
+        country: "China",
+        instructions: "hi",
+      },
+      {
+        id: 4,
+        name: "Recipe4",
+        country: "Finland",
+        instructions: "hi",
+      },
+      {
+        id: 5,
+        name: "Recipe5",
+        country: "",
+        instructions: "hi",
+      },
+      {
+        id: 6,
+        name: "Recipe6",
+        country: "China",
+        instructions: "hi",
+      },
+    ];
+    const result = parseCountries(recipes);
+    const expectation = ["Italy", "China", "Finland"];
+
+    // Check that result length is correct
+    expect(result.length).toBe(expectation.length);
+
+    // Check that each country matches the expected result
+    result.forEach((country, index) => {
+      expect(country).toBe(expectation[index]);
+    });
+  });
 });

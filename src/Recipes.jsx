@@ -5,6 +5,16 @@ import RecipeCard from "./RecipeCard";
 
 import classes from "./Recipes.module.css";
 
+// Creates a list of all countries from recipes
+export const parseCountries = (recipes) => {
+  const res = [];
+  recipes.forEach((recipe) => {
+    if (!res.includes(recipe.country) && recipe.country.length)
+      res.push(recipe.country);
+  });
+  return res;
+};
+
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
@@ -12,16 +22,6 @@ const Recipes = () => {
   const [ingredientSearchValue, setIngredientSearchValue] = useState("");
   const [countrySearchValue, setCountrySearchValue] = useState("");
   const [countries, setCountries] = useState([]);
-
-  // Creates a list of all countries from recipes
-  const parseCountries = (recipes) => {
-    const res = [];
-    recipes.forEach((recipe) => {
-      if (!res.includes(recipe.country) && recipe.country.length)
-        res.push(recipe.country);
-    });
-    return res;
-  };
 
   // Fetches all recipe data
   useEffect(() => {
