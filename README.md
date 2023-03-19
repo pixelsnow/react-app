@@ -18,6 +18,17 @@ Created as a part of React course by [@margittennosaar](https://www.github.com/m
 - Axios
 - JSON Server (for development)
 - [Countries API](https://restcountries.com/)
+- Jest & React testing library for testing
+
+## Tests
+
+- TEST GROUP 1: Making sure that all 3 cards on the home page are rendered correctly
+- TEST GROUP 2: Snapshot test
+- TEST GROUP 3: Navigation test - mimicking user navigating the website (Also checking that pages were rendered correctly in the process)
+- TEST GROUP 4: Testing form functionality, mimicking user actions
+- TEST GROUP 5: Testing that Countries API is up and working
+- TEST GROUP 6: Testing that our JSON server is up and working
+- TEST GROUP 7: Testing "under the hood" functions (parseCountries)
 
 ### Must-have features
 
