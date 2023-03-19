@@ -1,19 +1,21 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import axios from "axios";
 
+// Testing imports
 import { fireEvent, render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
+// Component imports
 import App from "../App";
 import Home from "../Home";
 import AddRecipePage from "../AddRecipePage";
-import axios from "axios";
-
+// Function imports
 import { parseCountries } from "../Recipes";
 
-// Making sure that all 3 cards on the home page are rendered correctly
+// TEST GROUP 1: Making sure that all 3 cards on the home page are rendered correctly
 describe("Home component - render tests", () => {
   test("Exactly 3 headings of 3rd level exist", () => {
     render(<Home />, { wrapper: BrowserRouter });
@@ -40,7 +42,7 @@ describe("Home component - render tests", () => {
   });
 });
 
-// Snapshot test
+// TEST GROUP 2: Snapshot test
 describe("Snapshot test - App front page", () => {
   test("App matches Snapshot", () => {
     const domTree = renderer.create(<App />).toJSON();
@@ -48,7 +50,7 @@ describe("Snapshot test - App front page", () => {
   });
 });
 
-// Navigation test - mimicking user navigating the website
+// TEST GROUP 3: Navigation test - mimicking user navigating the website
 // Also checking that pages were rendered correctly in the process
 describe("Navigation tests", () => {
   test("Navigated to about page, it's rendered correctly", async () => {
@@ -80,7 +82,7 @@ describe("Navigation tests", () => {
   });
 });
 
-// Testing form functionality, mimicking user actions
+// TEST GROUP 4: Testing form functionality, mimicking user actions
 describe("Form tests", () => {
   test("Checking that form is rendered properly", () => {
     render(<AddRecipePage />, { wrapper: BrowserRouter });
@@ -111,9 +113,9 @@ describe("Form tests", () => {
   });
 });
 
-// Testing that Countries API is up and works
-describe("test API", () => {
-  test("countries API", async () => {
+// TEST GROUP 5: Testing that Countries API is up and working
+describe("Test API", () => {
+  test("Countries API test", async () => {
     await axios
       .get(`https://restcountries.com/v3.1/name/Russia`)
       .then((data) => {
@@ -123,12 +125,22 @@ describe("test API", () => {
   });
 });
 
-// Testing an "under the hood" function parseCountries
-describe("test an under-the-hood function", () => {
+// TEST GROUP 6: Testing that our server is up and working
+describe("Test server", () => {
+  // First recipe should be Chicken Parmesan
+  test("First recipe test", async () => {
+    await axios.get(`http://localhost:4000/recipes/1`).then((data) => {
+      expect(data.data.name).toBe("Chicken Parmesan");
+    });
+  });
+});
+
+// TEST GROUP 7: Testing "under the hood" functions
+describe("Test under-the-hood functions", () => {
   // parseCountries is a function that takes in an array of recipe objects and returns an array of unique countries that are encountered among the recipes.
   // In this test it's important to check that countries are not duplicated and that recipes without a country filled in don't affect the result.
 
-  test("parseCountries test", () => {
+  test("parseCountries() test", () => {
     const recipes = [
       {
         id: 1,
