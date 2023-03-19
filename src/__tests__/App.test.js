@@ -125,7 +125,7 @@ describe("Test API", () => {
   });
 });
 
-// TEST GROUP 6: Testing that our server is up and working
+// TEST GROUP 6: Testing that our JSON server is up and working
 describe("Test server", () => {
   // First recipe should be Chicken Parmesan
   test("First recipe test", async () => {
